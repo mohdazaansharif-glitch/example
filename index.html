@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3D Skew Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eee;
+}
+
+/* MAIN WRAPPER */
+.wrapper{
+    list-style:none;
+    transform:skewY(-12deg);
+}
+
+/* ROW + BUTTON */
+.wrapper li,
+.wrapper button{
+    position:relative;
+    width:260px;
+    height:45px;
+    transition:0.3s;
+}
+
+/* LEFT FACE */
+.wrapper li::before,
+.wrapper button::before{
+    content:"";
+    position:absolute;
+    left:-40px;
+    top:0;
+    width:40px;
+    height:45px;
+    transform-origin:right;
+    transform:skewY(45deg);
+}
+
+/* TOP FACE */
+.wrapper li::after,
+.wrapper button::after{
+    content:"";
+    position:absolute;
+    top:-40px;
+    left:0;
+    width:260px;
+    height:40px;
+    transform-origin:bottom;
+    transform:skewX(45deg);
+}
+
+/* INPUT */
+.wrapper input{
+    width:100%;
+    height:100%;
+    border:none;
+    outline:none;
+    padding-left:15px;
+    font-size:14px;
+}
+
+/* COLORS + Z-INDEX */
+.wrapper li:nth-child(1){
+    z-index:4;
+}
+.wrapper li:nth-child(1) input{ background:#deddf7; }
+.wrapper li:nth-child(1)::before{ background:#cfcdf3; }
+.wrapper li:nth-child(1)::after{ background:#e9e8fb; }
+
+.wrapper li:nth-child(2){
+    z-index:3;
+}
+.wrapper li:nth-child(2) input{ background:#bdbcf0; }
+.wrapper li:nth-child(2)::before{ background:#a9a7ea; }
+.wrapper li:nth-child(2)::after{ background:#d1d0f6; }
+
+.wrapper li:nth-child(3){
+    z-index:2;
+}
+.wrapper li:nth-child(3) input{
+    background:#8c8ae0;
+    color:white;
+}
+.wrapper li:nth-child(3)::before{ background:#7775d6; }
+.wrapper li:nth-child(3)::after{ background:#a5a3ec; }
+
+/* BUTTON */
+.wrapper button{
+    z-index:1;
+    background:#5c5ad4;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+}
+.wrapper button::before{ background:#4b49c6; }
+.wrapper button::after{ background:#6f6de0; }
+
+/* HOVER FIX (IMPORTANT) */
+.wrapper li:hover,
+.wrapper button:hover{
+    transform:translateX(-25px);
+     /* ← THIS FIXES OVERLAP */
+}
+
+</style>
+</head>
+
+<body>
+
+<form>
+<ul class="wrapper">
+
+<li>
+    <input type="text" placeholder="Name" required>
+</li>
+
+<li>
+    <input type="text" placeholder="Phone number" required>
+</li>
+
+<li>
+    <input type="email" placeholder="E-mail" required>
+</li>
+
+<button type="submit">Submit</button>
+
+</ul>
+</form>
+
+</body>
+</html>
