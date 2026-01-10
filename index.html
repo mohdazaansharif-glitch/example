@@ -20,13 +20,11 @@ body{
     background:#eee;
 }
 
-/* MAIN WRAPPER */
 .wrapper{
     list-style:none;
     transform:skewY(-12deg);
 }
 
-/* ROW + BUTTON */
 .wrapper li,
 .wrapper button{
     position:relative;
@@ -35,7 +33,6 @@ body{
     transition:0.3s;
 }
 
-/* LEFT FACE */
 .wrapper li::before,
 .wrapper button::before{
     content:"";
@@ -48,7 +45,6 @@ body{
     transform:skewY(45deg);
 }
 
-/* TOP FACE */
 .wrapper li::after,
 .wrapper button::after{
     content:"";
@@ -61,7 +57,6 @@ body{
     transform:skewX(45deg);
 }
 
-/* INPUT */
 .wrapper input{
     width:100%;
     height:100%;
@@ -71,7 +66,7 @@ body{
     font-size:14px;
 }
 
-/* COLORS + Z-INDEX */
+/* COLORS */
 .wrapper li:nth-child(1){
     z-index:4;
 }
@@ -108,29 +103,31 @@ body{
 .wrapper button::before{ background:#4b49c6; }
 .wrapper button::after{ background:#6f6de0; }
 
-/* HOVER FIX (IMPORTANT) */
 .wrapper li:hover,
 .wrapper button:hover{
     transform:translateX(-25px);
-     /* ← THIS FIXES OVERLAP */
 }
-
 </style>
 </head>
 
 <body>
-<form action="https://formsubmit.co/mohdazaansharif@gmail.com" method="POST"> 
-      <ul class="wrapper"> 
-      <li> <input type="text" name="name" placeholder="Name" required> </li>
-      <li> <input type="text" name="phone" placeholder="Phone number" required> </li>
-      <li> <input type="email" name="email" placeholder="E-mail" required>
-      </li> <button type="submit">Submit</button>
+
+<form action="https://formsubmit.co/mohdazaansharif@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+
+    <ul class="wrapper">
+        <li>
+            <input type="text" name="name" placeholder="Name" required>
+        </li>
+        <li>
+            <input type="tel" name="phone" placeholder="Phone number" required>
+        </li>
+        <li>
+            <input type="email" name="email" placeholder="E-mail" required>
+        </li>
+        <button type="submit">Submit</button>
+    </ul>
 </form>
 
 </body>
 </html>
-
-
-
-
-
